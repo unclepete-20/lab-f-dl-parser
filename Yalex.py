@@ -1,7 +1,7 @@
 # -*-coding:utf-8 -*-
 """
 @File    :   Yalex.py
-@Date    :   2023/04/01
+@Date    :   2023/04/25
 @Author  :   Pedro Arriola (20188)
 @Version :   1.0
 @Desc    :   Clase que permite la lectura e interpretacion de los archivos Yalex.
@@ -14,44 +14,92 @@ class Yalex:
         self.yalex = yalex
     
     def read_yalex(self):
-        #aqui se guardaran todos los let
         funciones = []
-        filter_funciones = []
-        #aqui se guardaran los regex
+        filter_functions = []
         regex = []
         filter_regex = []
-        #para guardar las palabras y ver que se hara con ello segun la funcion que tengan
+        token_regex = []
+        token_functions = []
         word = ""
-        # leer el archivo
+        
+        # Se lee el archivo
         with open(self.yalex, 'r') as yalex:
-            lines = yalex.readlines()
+            lines = yalex.read()
 
-        # print(lines)
-        # print("==============================")
+        activeRule = False
+        #separarlos por let o rule
+        for l in lines:
+            if activeRule:
+                if l == "|":
+                    if word != "":
+                        word=""
+                    regex.append(l.strip())
+                else:
+                    if l not in ["\n",'\t'] : 
+                        word += l
+                        if "{" in word and "}" in word:
+                            word = word.strip()
+                            regex.append(word)
+                            word = ""
+                        if "(*" in word and "*)" in word:
+                            word = ""
+                    elif l == "\n":
+                        # print("word: ", word)
+                        if word:
+                            if "{" not in word:
+                                word = word.strip()
+                                if word != "":
+                                    regex.append(word)
+                        word+=" "
+            else:
+                word+=l
+                
+                if '\n' in word:
+                    if len(word) > 0:
+                        if "let" in word:
+                            word = word.strip()
+                            word = word[3:].strip()
+                            funciones.append(word)
+                        if "rule" in word: 
+                            activeRule = True
+                        word = ""
+        
+        regex = list(filter(bool, regex))
+        
+        #obtener los tokens
+        for x in range(len(regex)):
+            temporary_array = []
+            temporary_word = ""
+            token_active = False
+            for l in regex[x]:
+                if token_active:
+                    if l == "}":
+                        temporary_word = temporary_word.replace("'","").replace('"',"").strip()
+                        temporary_array.append(temporary_word)
+                        token_regex.append(temporary_array[0])
+                        token_regex.append("|")
+                        temporary_word = ""
+                        token_functions.append(temporary_array)
+                        break
+                    temporary_word += l
+                else:
+                    temporary_word += l
+                if l == "{":
+                    temporary_word = temporary_word[:-1].replace("'","").replace('"',"").strip()
+                    temporary_array.append(temporary_word)
+                    temporary_word = ""
+                    token_active = True
 
-        active_elements = False
+            if temporary_word and "|" not in temporary_word and len(temporary_word) > 0:
+                temporary_word = temporary_word.strip()
+                temporary_array.append(temporary_word)
+                temporary_array.append("")
+                token_regex.append(temporary_array[0])
+                token_regex.append("|")
+                token_functions.append(temporary_array)
 
-        #obtener los elementos
-        for line in lines:
-            #obtener los tokens
-            if active_elements:
-                temporary_word = ""
-                for x in line:
-                    if x != " " :
-                        if x != "\n":
-                            if x != "'":
-                                temporary_word += x
-                            if x =="|":
-                                regex.append(temporary_word)
-                                temporary_word = ""
-                        else:
-                            regex.append(temporary_word)
-            #obtener todas sus funciones
-            if line.startswith("let"):
-                funciones.append(line[4:-1])
-            #activar lo de tokens
-            if line.startswith("rule"):
-                active_elements = True
+
+        token_regex.pop()
                 
         #realizar limpieza de los datos de regex
         for x in range(len(regex)):
@@ -59,33 +107,33 @@ class Yalex:
             for l in regex[x]:
                 temporary_word += l
                 if "{" in temporary_word:
-                    temporary_word = temporary_word[:-1]
+                    temporary_word = temporary_word[:-1].strip()
                     break 
                 if "(*" in temporary_word:
-                    temporary_word = temporary_word[:-2]
+                    temporary_word = temporary_word[:-2].strip()
                     break 
-            regex[x] = temporary_word
+            if temporary_word.count("'") == 2:
+                temporary_word = temporary_word[1:-1]
 
+            regex[x] = temporary_word
+        
         for x in regex:
             if len(x) != 0:
                 if x.count('"') == 2:
                     x = x[1:-1]
                 filter_regex.append(x)
-        # print("filter_regex: ", filter_regex)
-        #limpieza de los datos de funciones
 
-        print(funciones)
+
+        #limpieza de los datos de funciones
         for f in funciones:
             deletable_array = []
             temporal_array = []
             nombre, definicion = f.split("=")
             nombre = nombre.strip()
             definicion = definicion.strip()
-            # print("definicion: ", definicion)
-            # definicion = definicion.replace('\\t', '\t').replace('\\n', '\n')
-            # print("definicion modificada: ", definicion)
+
             temporal_array.append(nombre)
-            # print(temporal_array)
+
             word= ""
             #realizar revision para a definicion
             if definicion[0] == "[":
@@ -95,9 +143,7 @@ class Yalex:
                     if word[0] == '"' or word[0] == "'":
                         if word.count("'") == 2:
                             word = word[1:-1]
-                            # print("word: ", word)
-                            # print(len(word))
-                            #estos son los que tienen \
+
                             if len(word) == 2:
                                 if word == "\s":
                                     word = bytes(' ', 'utf-8').decode('unicode_escape')
@@ -112,12 +158,9 @@ class Yalex:
                                 else:
                                     deletable_array.append(ord(word))
                             word = ""
-                            # print("deletable_array: ", deletable_array)
+
                         if word.count('"') == 2:
-                            # si tiene \ o no tiene dependiendo de este se trabajara conforme a ello
-                            # print("word: ", word)
                             word = word[1:-1]
-                            # deletable_array.append(word[1:-1])
                             temporary_word = ""
                             #si tiene \ en word
                             if chr(92) in word:
@@ -128,8 +171,7 @@ class Yalex:
                                             temp_word = ' '
                                         else:
                                             temp_word = temporary_word[:-1]
-                                        # print("temp_word: ", ord(temp_word).to_bytes(2, byteorder='little').hex())
-                                        # deletable_array.append(ord(temp_word).to_bytes(2, byteorder='little').hex())
+                                        
                                         word = bytes(temp_word, 'utf-8').decode('unicode_escape')
                                         deletable_array.append(ord(word))
                                         temporary_word = temporary_word[2:]
@@ -138,8 +180,7 @@ class Yalex:
                                         temp_word = ' '
                                     else:
                                         temp_word = temporary_word
-                                    # print("temp_word: ", ord(temp_word).to_bytes(2, byteorder='little').hex())
-                                    # deletable_array.append(ord(temp_word).to_bytes(2, byteorder='little').hex())
+
                                     word = bytes(temp_word, 'utf-8').decode('unicode_escape')
                                     deletable_array.append(ord(word))
                             else:
@@ -147,46 +188,37 @@ class Yalex:
                                 for w in range(len(word)):
                                     word[w] = ord(word[w])
                                 deletable_array.extend(word)
-                        # print(deletable_array)
                                 
                     else:
-                        # print("word: ", word)
                         deletable_array.append(word)
                         word = ""
-                    # print("deletable array: ", deletable_array)
-                
-                # print(definicion)
                 
             else:
-                # print("word: ", definicion)
                 tokens = []
                 token_actual = ""
                 
                 for caracter in definicion:
-                    # print("caracter: ",caracter)
-                    # print("token_actual: ",token_actual)
                     
                     if "]" in token_actual:
-                        palabra = ""
+                        word = ""
                         array = []
                         array.append("(")
                         
                         token_actual = token_actual[1:-1]
-                        # print("token_actual: ",token_actual)
                         for tok in token_actual:
-                            palabra += tok
-                            if palabra.count("'") == 2:
-                                palabra = ord(palabra[1:-1])
-                                array.append(palabra)
+                            word += tok
+                            if word.count("'") == 2:
+                                word = ord(word[1:-1])
+                                array.append(word)
                                 array.append("|")
-                                palabra = ""
+                                word = ""
                         array[len(array)-1] = ")"
                         tokens.extend(array)
                         token_actual = ""
                     
                     if token_actual.count("'") == 2:
                         if "[" not in token_actual:
-                            token_actual = token_actual[1:-1]
+                            token_actual = ord(token_actual[1:-1])
                             tokens.append(token_actual)
                             token_actual = ""
                     
@@ -197,16 +229,15 @@ class Yalex:
                                     token_actual = ord(token_actual)
                                 tokens.append(token_actual)
                                 token_actual = ""
+                            if caracter == ".":
+                                caracter = ord(caracter)
                             tokens.append(caracter)
                         else:
-                            token_actual += caracter
+                            token_actual += caracter.strip()
                     else:
-                        token_actual += caracter
-                    # print("tokens: ", tokens)
-                    # print("==================")
+                        token_actual += caracter.strip()
                 if token_actual:
                     tokens.append(token_actual)
-                # print("tokens: ", tokens)
                 
                 deletable_array.extend(tokens)
                 
@@ -214,31 +245,24 @@ class Yalex:
             temporal_array.append(deletable_array)
             
             #agregar temporal array a funciones
-            filter_funciones.append(temporal_array)
-            # print("filter_funciones antes: ",filter_funciones)
-            
-            # print(nombre)
-            # print(definicion)
-        # print("filter_funciones: ", filter_funciones)
+            filter_functions.append(temporal_array)
 
         #agregar concatenacion a las funciones
-        for x in range(len(filter_funciones)):
+        for x in range(len(filter_functions)):
             isFunc = True
             
             #revisar si tiene int
             for c in ["+","*","(",")","?","|"]:
-                if c in filter_funciones[x][1]:
+                if c in filter_functions[x][1]:
                     isFunc = False
                 
-            # print("filter_funciones: ", filter_funciones[x][1])
-            # print(isFunc)
             
             if isFunc == False:
                 #revisar si tiene .
                 
                 #comenzar a concatenar
                 temporal_array = []
-                for y in filter_funciones[x][1]:
+                for y in filter_functions[x][1]:
                     temporal_array.append(y)
                     temporal_array.append("•")
                 #eliminar las concatenaciones inecesarios del funciones
@@ -265,132 +289,69 @@ class Yalex:
                             temporal_array[z-1] = ''
                 temporal_array = [element for element in temporal_array if element != '']
                             
-                filter_funciones[x][1] = temporal_array[:-1]
+                filter_functions[x][1] = temporal_array[:-1]
                 
             else:
                 #revisar si tiene -
                 ascii_array=[]
                 newString_Array = []
-                if '-' in filter_funciones[x][1]:
-                    for z in range(len(filter_funciones[x][1])):
-                        if filter_funciones[x][1][z] == '-':
-                            for i in range(filter_funciones[x][1][z-1],filter_funciones[x][1][z+1]+1):
+                if '-' in filter_functions[x][1]:
+                    for z in range(len(filter_functions[x][1])):
+                        if filter_functions[x][1][z] == '-':
+                            for i in range(filter_functions[x][1][z-1],filter_functions[x][1][z+1]+1):
                                 ascii_array.append(i)
                     #convertir el ascii en string otra vez, en este caso lo dejo como ascii
                     for i in ascii_array:
                         newString_Array.append(i)
-                    # print(newString_Array)
                     #reemplazarlo en su respectiva posicion
-                    filter_funciones[x][1] = newString_Array
-                    #convertir en chr los ascii
-                # else:
-                #     for z in range(len(filter_funciones[x][1])):
-                #         if type(filter_funciones[x][1][z]) == int:
-                #             filter_funciones[x][1][z] = chr(filter_funciones[x][1][z])
-                            
+                    filter_functions[x][1] = newString_Array
+
                 #añadir los | en cada uno
                 newString_Array = []
-                for y in filter_funciones[x][1]:
+                for y in filter_functions[x][1]:
                     newString_Array.append(y)
                     newString_Array.append('|')
                     
                 newString_Array = newString_Array[:-1]
-                filter_funciones[x][1] = newString_Array
+                filter_functions[x][1] = newString_Array
                 
-                # print("filter_funciones: ",filter_funciones[x][1])
-
-        #agregar () al final y inicial 
-        # print(filter_funciones)
-        for func in filter_funciones:
+        for func in filter_functions:
             func[1].insert(0,"(")
             func[1].insert(len(func[1]),")")
-
-        #convertilos en axi solo aquellos que no forman parte de alguna funcion
-
-        # print("===================================")
-        # print("funciones:")
+            
         functionNames = []
         #obtener los nombres de las funciones
-        for x in filter_funciones:
+        for x in filter_functions:
             functionNames.append(x[0])
-            # print(x)
+
         functionNames.append('|')
-        # print("filter_regex: ",filter_regex)
         for x in range(len(filter_regex)):
             if filter_regex[x] not in functionNames:
                 if len(filter_regex[x]) == 1:
-                    # print("filter_regex[x]: ", filter_regex[x])
                     filter_regex[x] = ord(filter_regex[x])
-        
-        # print("filter_regex: ",filter_regex)      
+   
 
         #agregar los #
         temporalNewRegex = []
-        for x in filter_regex:
-            if x != "|":
+        for x in range(len(filter_regex)):
+            if filter_regex[x] != "|":
                 temporalNewRegex.append("(")
-                temporalNewRegex.append(x)
+                temporalNewRegex.append(filter_regex[x])
                 temporalNewRegex.append("•")
-                temporalNewRegex.append("#"+str(x))
+                temporalNewRegex.append("#"+str(token_regex[x]))
                 temporalNewRegex.append(")")
             else:
-                temporalNewRegex.append(x)
+                temporalNewRegex.append(filter_regex[x])
         
-        # print("temporalNewRegex: ",temporalNewRegex)
         filter_regex = temporalNewRegex        
-        # print("\nregex: ", filter_regex)
 
-        #comenzar a reemplazar la regex
-        final_regex = []
-        for rege in filter_regex:
-            existe = False
-            #si la regex existe en las funciones
-            for func in filter_funciones:
-                if rege == func[0]:
-                    # print("rege: ",rege)
-                    existe = True
-                    #este sera en el que tendra todos los cambios y por el cual se cambiara
-                    regex_temporal = []
-                    regex_temporal.extend(func[1])
-                    #seguir revisando si en el regex temporal si dentro de el aun existe valores que pertenecen a las funcioens hasta que ya ninguno no tenga mas
-                    largo = 0
-                    while (largo != len(regex_temporal)):
-                                    
-                        largo = len(regex_temporal)
-                        # print("regex_temporal: ", regex_temporal)
-                        # print("largo: ",largo)   
-                        # print("===========")
-                        i = 0
-                        regex_evaluacion = []
-                        while (i < len(regex_temporal)):
-                            existe2 = False
-                            for x in filter_funciones:
-                                if regex_temporal[i] == x[0]:
-                                    existe2 = True
-                                    # print("regex_temporal[i]: ",regex_temporal[i], i ,len(regex_temporal))
-                                    # print("regex_evaluacion fist: ", regex_evaluacion)
-                                    regex_evaluacion.extend(x[1])
-                                    # print("regex_evaluacion second: ", regex_evaluacion)
-                                    regex_evaluacion.extend(regex_temporal[i+1:])
-                                    # print("regex_evaluacion last: ", regex_evaluacion)
-                                    regex_temporal = regex_evaluacion
-                                    # print("regex_temporal modificado: ", regex_temporal)
-                                    i = len(regex_temporal)
-                                    regex_evaluacion = []
-                                    # input()
-                                    break
+        def replace_recursive(reg):
+            for func in filter_functions:
+                if reg == func[0]:
+                    return [item for sublist in [replace_recursive(x) for x in func[1]] for item in sublist]
+            return [reg]
+    
+        final_regex = [item for sublist in [replace_recursive(reg) for reg in filter_regex] for item in sublist]
 
-                            if existe2 == False:
-                                # print("regex_temporal[i]: ", regex_temporal[i])
-                                regex_evaluacion.append(regex_temporal[i])
-                                i+=1
-                            
-                    final_regex.extend(regex_temporal)
-            #si la regex no existe en las funciones solo agregarlo
-            if existe == False:
-                final_regex.append(rege)
-            # print("=============================================")
-            # print("final_regex: ",final_regex)
 
-        # print("\nfinal regex: ", final_regex)
-        return final_regex
+        return final_regex, token_functions
