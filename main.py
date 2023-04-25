@@ -19,7 +19,7 @@ from Simulation import Simulation
 header = pyfiglet.figlet_format("Y A L E X")
 print(header)
 
-yalex = "./yalex/slr-2.yal"
+yalex = "./yalex/slr-0.yal"
 
 start_time = time.time()
 

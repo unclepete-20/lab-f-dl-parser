@@ -139,7 +139,7 @@ class Yalex:
             if definicion[0] == "[":
                 definicion = definicion[1:-1]
                 for x in definicion:
-                    word+=x
+                    word += x
                     if word[0] == '"' or word[0] == "'":
                         if word.count("'") == 2:
                             word = word[1:-1]
@@ -156,6 +156,7 @@ class Yalex:
                                     word = bytes(' ', 'utf-8').decode('unicode_escape')
                                     deletable_array.append(ord(word))
                                 else:
+                                    print(word)
                                     deletable_array.append(ord(word))
                             word = ""
 
