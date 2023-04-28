@@ -25,9 +25,10 @@ start_time = time.time()
 
 regex, token_functions = Yalex(yalex).read_yalex()
 
+
 post = Postfix(regex)
 postfix = post.shunting_yard()
-print("\npostfix: ", postfix)
+print("\npostfix: {postfix}\n")
 
 
 tree = SyntacticTree(yalex)
@@ -59,7 +60,7 @@ test = "./test/test_2.txt"
 with open(test) as f:
     testLines = f.readlines()
 
-print("token_functions: ", token_functions)
+print(f"\ntoken_functions: {token_functions}\n")
     
 simulation = Simulation(direct[0], direct[1], testLines)
 sim = simulation.simulate()
@@ -67,7 +68,7 @@ sim = simulation.simulate()
 python_file = Definition(token_functions)
 python_file.create_python()
 
-print(f"\nsimulacion: {sim}")
+print(f"\nsimulacion: {sim}\n")
 
 
 from Scanner import *

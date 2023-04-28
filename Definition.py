@@ -29,3 +29,4 @@ class Definition(object):
             
             file.write("    return f'Token indefinido: {{token}}'\n")
             file.close
+            

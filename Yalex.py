@@ -44,7 +44,6 @@ class Yalex:
                         if "(*" in word and "*)" in word:
                             word = ""
                     elif l == "\n":
-                        # print("word: ", word)
                         if word:
                             if "{" not in word:
                                 word = word.strip()
@@ -156,7 +155,6 @@ class Yalex:
                                     word = bytes(' ', 'utf-8').decode('unicode_escape')
                                     deletable_array.append(ord(word))
                                 else:
-                                    print(word)
                                     deletable_array.append(ord(word))
                             word = ""
 
@@ -344,6 +342,7 @@ class Yalex:
                 temporalNewRegex.append("•")
                 temporalNewRegex.append("#"+str(token_regex[x]))
                 temporalNewRegex.append(")")
+                print(f"Processing token: {filter_regex[x]}, {token_regex[x]}")
             else:
                 temporalNewRegex.append(filter_regex[x])
         
@@ -356,6 +355,7 @@ class Yalex:
             return [reg]
     
         final_regex = [item for sublist in [replace_recursive(reg) for reg in filter_regex] for item in sublist]
+
 
 
         return final_regex, token_functions

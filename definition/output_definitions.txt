@@ -4,4 +4,28 @@
 ['ws', '        '] ==> Definicion: 10
 ['id', 'uuuuuuuuuu'] ==> Definicion: 5
 ['ws', '\n'] ==> Definicion: 10
-['id', 'if'] ==> Definicion: 5
+['number', '14141414141414141414'] ==> Definicion: 11
+['ws', '    '] ==> Definicion: 10
+['(', '('] ==> Definicion: 8
+['ws', ' '] ==> Definicion: 10
+[')', ')'] ==> Definicion: 9
+['ws', '\n'] ==> Definicion: 10
+['id', 'dbqhwb'] ==> Definicion: 5
+['ws', ' '] ==> Definicion: 10
+['/', '/'] ==> Definicion: 13
+['ws', '\n'] ==> Definicion: 10
+['id', 'uybefo'] ==> Definicion: 5
+['ws', '  '] ==> Definicion: 10
+['id', 'ded'] ==> Definicion: 5
+['ws', '  '] ==> Definicion: 10
+['id', 'lefn'] ==> Definicion: 5
+['ws', '    '] ==> Definicion: 10
+['id', 'efy'] ==> Definicion: 5
+['ws', ' '] ==> Definicion: 10
+['id', 'qweufdbqd'] ==> Definicion: 5
+['ws', '\n\n'] ==> Definicion: 10
+['+', '+'] ==> Definicion: 6
+['-', '-'] ==> Definicion: 12
+['*', '*'] ==> Definicion: 7
+['ws', '\n\n'] ==> Definicion: 10
+['if', 'if'] ==> Definicion: 18
