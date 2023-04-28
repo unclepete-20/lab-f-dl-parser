@@ -15,46 +15,34 @@ class Simulation:
         self.tokens = sfPoint[2]
         self.test = test
         self.result = []
-        
+        self.dfa_dict = {(pos[0], pos[1]): pos[2] for pos in dfa}
+
     def simulate(self):
         text = ""
         position = self.start[0]
         for x in self.test:
             for l in x:
-                done = False
-                notExist = True
-                val = ord(l)
-                while not (done):
-                    
-                    for pos in self.dfa:
-                        if pos[0] == position and pos[1] == str(val):
-                            text += chr(val)
-                            position = pos[2]
-                            notExist = False
-                            done = True
-                            break
-                
-                    if notExist:
+                exists = True
+                value = ord(l)
+
+                next_position = self.dfa_dict.get((position, str(value)))
+                if next_position is not None:
+                    text += chr(value)
+                    position = next_position
+                    exists = False
+                else:
+                    if exists:
                         if position == self.start[0]:
-                            self.result.append(["lexical error",l])
+                            self.result.append(["lexical error", l])
                             text = ""
-                            done = True
                         else:
-                            
                             indice = self.end.index(position)
-                            self.result.append([self.tokens[indice].replace("#",""),text])
+                            self.result.append([self.tokens[indice].replace("#", ""), text])
                             text = ""
                             position = self.start[0]
 
         if text:
             if position == self.start[0]:
-                self.result.append(["lexical error",text])
-                text = ""
-            else:
-                indice = self.end.index(position)
-                self.result.append([self.tokens[indice].replace("#",""),text])
-                text = ""
-                position = self.start[0]
-            
-                        
+                self.result.append(["lexical error", text])
+        
         return self.result
