@@ -10,8 +10,6 @@ rule tokens =
   
 	| id  {  
 				if t.value == 0: return ID
-				else:
-					return NONE
 
 	}         (* Cambie por una acción válida, que devuelva el token *)
   

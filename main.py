@@ -55,7 +55,7 @@ direct= dfa.Dstate()
 
 dfa.visualize_dfa(direct[0],direct[1])
 
-test = "./test/test.txt"
+test = "./test/test_2.txt"
 with open(test) as f:
     testLines = f.readlines()
 
@@ -67,7 +67,7 @@ sim = simulation.simulate()
 python_file = Definition(token_functions)
 python_file.create_python()
 
-print(f"simulacion: {sim}")
+print(f"\nsimulacion: {sim}")
 
 
 from Scanner import *
@@ -75,4 +75,4 @@ from Scanner import *
 with open("./definition/output_definitions.txt", "w") as f:
     for s in sim:
         scanner = scan(s[0])
-        f.write(f"{s}:{scanner}\n")
+        f.write(f"{s} ==> Definicion: {scanner}\n")

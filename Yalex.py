@@ -261,37 +261,40 @@ class Yalex:
             if isFunc == False:
                 #revisar si tiene .
                 
-                #comenzar a concatenar
+                # Se comienza con el proceso de concatenacion
                 temporal_array = []
                 for y in filter_functions[x][1]:
                     temporal_array.append(y)
                     temporal_array.append("•")
-                #eliminar las concatenaciones inecesarios del funciones
+                    
+                # Se elimina cualquier concatenacion inncesaria de los lexemas
+                char_to_check = {
+                    "(": 1,
+                    ")": -1,
+                    "*": -1,
+                    "|": [1, -1],
+                    "+": -1,
+                    "?": -1
+                }
+
+                # Iterate through the temporal_array
                 for z in range(len(temporal_array)):
-                    if temporal_array[z] == "(":
-                        if temporal_array[z+1] == "•":
-                            temporal_array[z+1] = ''
-                    if temporal_array[z] == ")":
-                        if temporal_array[z-1] == "•":
-                            temporal_array[z-1] = ''
-                    if temporal_array[z] == "*":
-                        if temporal_array[z-1] == "•":
-                            temporal_array[z-1] = ''
-                    if temporal_array[z] == "|":
-                        if temporal_array[z-1] == "•":
-                            temporal_array[z-1] = ''
-                        if temporal_array[z+1] == "•":
-                            temporal_array[z+1] = ''
-                    if temporal_array[z] == "+":
-                        if temporal_array[z-1] == "•":
-                            temporal_array[z-1] = ''
-                    if temporal_array[z] == "?":
-                        if temporal_array[z-1] == "•":
-                            temporal_array[z-1] = ''
+                    char = temporal_array[z]
+                    
+                    if char in char_to_check:
+                        indices = char_to_check[char]
+                        
+                        if not isinstance(indices, list):
+                            indices = [indices]
+                        
+                        for index in indices:
+                            if temporal_array[z + index] == "•":
+                                temporal_array[z + index] = ''
+
+                # Filter the array
                 temporal_array = [element for element in temporal_array if element != '']
-                            
                 filter_functions[x][1] = temporal_array[:-1]
-                
+
             else:
                 #revisar si tiene -
                 ascii_array=[]
@@ -316,23 +319,23 @@ class Yalex:
                 newString_Array = newString_Array[:-1]
                 filter_functions[x][1] = newString_Array
                 
-        for func in filter_functions:
-            func[1].insert(0,"(")
-            func[1].insert(len(func[1]),")")
-            
+        for i, func in enumerate(filter_functions):
+            filter_functions[i][1] = ["("] + func[1] + [")"]
+
         functionNames = []
-        #obtener los nombres de las funciones
+        # Se obtiene los nombres de las funciones correspondientes
         for x in filter_functions:
             functionNames.append(x[0])
 
         functionNames.append('|')
-        for x in range(len(filter_regex)):
-            if filter_regex[x] not in functionNames:
-                if len(filter_regex[x]) == 1:
-                    filter_regex[x] = ord(filter_regex[x])
-   
+        
+        for i, regex in enumerate(filter_regex):
+            if regex not in functionNames:
+                if len(regex) == 1:
+                    filter_regex[i] = ord(regex)
 
-        #agregar los #
+
+        # Se agregan los #
         temporalNewRegex = []
         for x in range(len(filter_regex)):
             if filter_regex[x] != "|":

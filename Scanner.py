@@ -6,6 +6,11 @@ def scan(token):
             return WHITESPACE
         except NameError:
             return f'Token indefinido: {{token}}'
+    if token == 'if':
+        try:
+            return IFSTATEMENT
+        except NameError:
+            return f'Token indefinido: {{token}}'
     if token == 'id':
         try:
             return ID

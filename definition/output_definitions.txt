@@ -1,13 +1,7 @@
-['number', '40']:11
-['number', '15']:11
-['number', '4.5E+19']:11
-['ws', '\n']:10
-['id', 'egeta777']:5
-['ws', '\n']:10
-['number', '0']:11
-['ws', '\n']:10
-['id', 'aludos']:5
-['id', 'todos']:5
-['ws', '\n']:10
-['number', '0']:11
-['id', 'a']:5
+['id', 'aaaaaaaaaaaaa'] ==> Definicion: 5
+['ws', '\n'] ==> Definicion: 10
+['id', 'aaaa1111111111111111111111111111111111111111'] ==> Definicion: 5
+['ws', '        '] ==> Definicion: 10
+['id', 'uuuuuuuuuu'] ==> Definicion: 5
+['ws', '\n'] ==> Definicion: 10
+['id', 'if'] ==> Definicion: 5

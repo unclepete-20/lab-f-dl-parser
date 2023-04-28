@@ -36,7 +36,6 @@ class DFA:
     # Se enumeran los estados correspondientes
     def enumerate_states(self):
         self.q = list(range(1, 1000))
-
         self.newPostfix = [self.q.pop(0) if x not in '*|•?+ε' else x for x in self.postfix]
 
 
