@@ -67,13 +67,11 @@ sim = simulation.simulate()
 
 python_file = Definition(token_functions)
 python_file.create_python()
+python_file.create_scanner_output()
 
 print(f"\nsimulacion: {sim}\n")
 
 
 from Scanner import *
 
-with open("./definition/output_definitions.txt", "w") as f:
-    for s in sim:
-        scanner = scan(s[0])
-        f.write(f"{s} ==> Definicion: {scanner}\n")
+output_scanner(sim)

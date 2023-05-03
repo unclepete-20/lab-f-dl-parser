@@ -29,4 +29,14 @@ class Definition(object):
             
             file.write("    return f'Token indefinido: {{token}}'\n")
             file.close
-            
+    
+    def create_scanner_output(self):
+        with open("Scanner.py", "a") as file:
+            file.write("\n")
+            file.write("def output_scanner(simulation):\n")
+            file.write("    with open('./definition/output_definitions.txt', 'w') as f:\n")
+            file.write("        for s in simulation:\n")
+            file.write("            scanner = scan(s[0])\n")
+            file.write("            f.write(f'{s} ==> Definicion: {scanner}\\n')\n")
+            file.close()
+

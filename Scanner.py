@@ -52,3 +52,9 @@ def scan(token):
         except NameError:
             return f'Token indefinido: {{token}}'
     return f'Token indefinido: {{token}}'
+
+def output_scanner(simulation):
+    with open('./definition/output_definitions.txt', 'w') as f:
+        for s in simulation:
+            scanner = scan(s[0])
+            f.write(f'{s} ==> Definicion: {scanner}\n')
