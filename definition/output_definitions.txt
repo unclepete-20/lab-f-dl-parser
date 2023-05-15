@@ -1,31 +1,597 @@
-['id', 'aaaaaaaaaaaaa'] ==> Definicion: 5
-['ws', '\n'] ==> Definicion: 10
-['id', 'aaaa1111111111111111111111111111111111111111'] ==> Definicion: 5
-['ws', '        '] ==> Definicion: 10
-['id', 'uuuuuuuuuu'] ==> Definicion: 5
-['ws', '\n'] ==> Definicion: 10
-['number', '14141414141414141414'] ==> Definicion: 11
-['ws', '    '] ==> Definicion: 10
-['(', '('] ==> Definicion: 8
-['ws', ' '] ==> Definicion: 10
-[')', ')'] ==> Definicion: 9
-['ws', '\n'] ==> Definicion: 10
-['id', 'dbqhwb'] ==> Definicion: 5
-['ws', ' '] ==> Definicion: 10
-['/', '/'] ==> Definicion: 13
-['ws', '\n'] ==> Definicion: 10
-['id', 'uybefo'] ==> Definicion: 5
-['ws', '  '] ==> Definicion: 10
-['id', 'ded'] ==> Definicion: 5
-['ws', '  '] ==> Definicion: 10
-['id', 'lefn'] ==> Definicion: 5
-['ws', '    '] ==> Definicion: 10
-['id', 'efy'] ==> Definicion: 5
-['ws', ' '] ==> Definicion: 10
-['id', 'qweufdbqd'] ==> Definicion: 5
-['ws', '\n\n'] ==> Definicion: 10
-['+', '+'] ==> Definicion: 6
-['-', '-'] ==> Definicion: 12
-['*', '*'] ==> Definicion: 7
-['ws', '\n\n'] ==> Definicion: 10
-['if', 'if'] ==> Definicion: 18
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'C'] ==> Definicion: may
+['minusword', 'onfiguraci'] ==> Definicion: min
+['lexical error', 'ó'] ==> Definicion: Token indefinido: {token}
+['minusword', 'n'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'del'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'parser'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'para'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'G'] ==> Definicion: may
+['minusword', 'ram'] ==> Definicion: min
+['lexical error', 'á'] ==> Definicion: Token indefinido: {token}
+['minusword', 'tica'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'N'] ==> Definicion: may
+['minusword', 'o'] ==> Definicion: min
+['lexical error', '.'] ==> Definicion: Token indefinido: {token}
+['lexical error', '4'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'S'] ==> Definicion: may
+['minusword', 'igue'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'la'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'gram'] ==> Definicion: min
+['lexical error', 'á'] ==> Definicion: Token indefinido: {token}
+['minusword', 'tica'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'SLR'] ==> Definicion: may
+[':', ':'] ==> Definicion: :
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'P'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'T'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'T'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'M'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'Q'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'T'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'M'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'Q'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'M'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'Q'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'Q'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'M'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'M'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'A'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'A'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['minusword', 'id'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'assignop'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'E'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'E'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'X'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'Z'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'E'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'X'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'Z'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['lexical error', '<'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'X'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'Z'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['minusword', 'eq'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'X'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'X'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'R'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'W'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'X'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'R'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'W'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'Y'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'W'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'W'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'Y'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'Y'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['characters', '+'] ==> Definicion: NOTIMPORTANT
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'R'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'Y'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'R'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'R'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'F'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'V'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'R'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'F'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'V'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'J'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'V'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'V'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'J'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'J'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['characters', '*'] ==> Definicion: NOTIMPORTANT
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'F'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'J'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['characters', '/'] ==> Definicion: NOTIMPORTANT
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'F'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'F'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['lexical error', '('] ==> Definicion: Token indefinido: {token}
+['mayusword', 'E'] ==> Definicion: may
+['lexical error', ')'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'F'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['minusword', 'number'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n'] ==> Definicion: empty
+['/*', '/*'] ==> Definicion: /*
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'F'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['characters', '-'] ==> Definicion: NOTIMPORTANT
+['lexical error', '>'] ==> Definicion: Token indefinido: {token}
+['ws', ' '] ==> Definicion: empty
+['minusword', 'id'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['*/', '*/'] ==> Definicion: */
+['ws', '\n\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'ID'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'NUMBER'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'LPAREN'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'RPAREN'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'SEMICOLON'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'ASSIGNOP'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'LT'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'EQ'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'MINUS'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'DIV'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'PLUS'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+['%token', '%token'] ==> Definicion: %token
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'TIMES'] ==> Definicion: may
+['ws', '\n\n'] ==> Definicion: empty
+['%%', '%%'] ==> Definicion: %%
+['ws', '\n\n'] ==> Definicion: empty
+['minusword', 'p'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['minusword', 't'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 't'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['minusword', 'm'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'q'] ==> Definicion: min
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['minusword', 'm'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'q'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['mayusword', 'SEMICOLON'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['minusword', 'm'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'q'] ==> Definicion: min
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'SEMICOLON'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['minusword', 'm'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'm'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['minusword', 'a'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'a'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['mayusword', 'ID'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'ASSIGNOP'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['minusword', 'e'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'e'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['minusword', 'x'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'z'] ==> Definicion: min
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['minusword', 'x'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'z'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['mayusword', 'LT'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['minusword', 'x'] ==> Definicion: min
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'EQ'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['minusword', 'x'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'x'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['minusword', 'r'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'w'] ==> Definicion: min
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['minusword', 'r'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'w'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['minusword', 'y'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'w'] ==> Definicion: min
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['minusword', 'y'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'y'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['mayusword', 'PLUS'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['minusword', 'r'] ==> Definicion: min
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'MINUS'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['minusword', 'r'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'r'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['minusword', 'f'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'v'] ==> Definicion: min
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['minusword', 'f'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'v'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['minusword', 'j'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['minusword', 'v'] ==> Definicion: min
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['minusword', 'j'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'j'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['mayusword', 'TIMES'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['minusword', 'f'] ==> Definicion: min
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'DIV'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['minusword', 'f'] ==> Definicion: min
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty
+['minusword', 'f'] ==> Definicion: min
+[':', ':'] ==> Definicion: :
+['ws', '\n    '] ==> Definicion: empty
+['mayusword', 'LPAREN'] ==> Definicion: may
+['ws', ' '] ==> Definicion: empty
+['minusword', 'e'] ==> Definicion: min
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'RPAREN'] ==> Definicion: may
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'NUMBER'] ==> Definicion: may
+['ws', '\n  '] ==> Definicion: empty
+['|', '|'] ==> Definicion: |
+['ws', ' '] ==> Definicion: empty
+['mayusword', 'ID'] ==> Definicion: may
+['ws', '\n'] ==> Definicion: empty
+[';', ';'] ==> Definicion: ;
+['ws', '\n'] ==> Definicion: empty

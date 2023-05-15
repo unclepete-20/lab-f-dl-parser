@@ -1,4 +1,4 @@
-from Token import *
+from Production import *
 
 def scan(token):
     if token == 'ws':
@@ -6,49 +6,59 @@ def scan(token):
             return WHITESPACE
         except NameError:
             return f'Token indefinido: {{token}}'
-    if token == 'if':
+    if token == 'characters':
         try:
-            return IFSTATEMENT
+            return CHARACTERS
         except NameError:
             return f'Token indefinido: {{token}}'
-    if token == 'id':
+    if token == '/*':
         try:
-            return ID
+            return LEFTCOMMENT
         except NameError:
             return f'Token indefinido: {{token}}'
-    if token == 'number':
+    if token == '*/':
         try:
-            return NUMBER
+            return RIGHTCOMMENT
         except NameError:
             return f'Token indefinido: {{token}}'
-    if token == '+':
+    if token == '%token':
         try:
-            return PLUS
+            return TOKEN
         except NameError:
             return f'Token indefinido: {{token}}'
-    if token == '-':
+    if token == '|':
         try:
-            return MINUS
+            return OR
         except NameError:
             return f'Token indefinido: {{token}}'
-    if token == '*':
+    if token == 'IGNORE':
         try:
-            return TIMES
+            return IGNORE
         except NameError:
             return f'Token indefinido: {{token}}'
-    if token == '/':
+    if token == 'minusword':
         try:
-            return DIV
+            return WORDMIN
         except NameError:
             return f'Token indefinido: {{token}}'
-    if token == '(':
+    if token == 'mayusword':
         try:
-            return LPAREN
+            return WORDMAY
         except NameError:
             return f'Token indefinido: {{token}}'
-    if token == ')':
+    if token == '%%':
         try:
-            return RPAREN
+            return SPLIT
+        except NameError:
+            return f'Token indefinido: {{token}}'
+    if token == ':':
+        try:
+            return TWOPOINTS
+        except NameError:
+            return f'Token indefinido: {{token}}'
+    if token == ';':
+        try:
+            return FINISHDECLARATION
         except NameError:
             return f'Token indefinido: {{token}}'
     return f'Token indefinido: {{token}}'

@@ -1,0 +1,77 @@
+// LR(0) of slr-3.yalp
+digraph {
+	label="LR(0) of slr-3.yalp" labelloc=t
+	0 [label="I0
+[E, [., T, number, E]]
+[E, [., T]]
+[E, [., E]]
+[T, [., N, NUMBER, T]]
+[T, [., N]]
+[T, [., NUMBER, E, NUMBER]]
+" fontsize=10 shape=rectangle]
+	1 [label="I1
+[E, [E, .]]
+" fontsize=10 shape=rectangle]
+	2 [label="I2
+[T, [N, ., NUMBER, T]]
+[T, [N, .]]
+" fontsize=10 shape=rectangle]
+	3 [label="I3
+[E, [., T, number, E]]
+[E, [., T]]
+[T, [NUMBER, ., E, NUMBER]]
+[T, [., N, NUMBER, T]]
+[T, [., N]]
+[T, [., NUMBER, E, NUMBER]]
+" fontsize=10 shape=rectangle]
+	4 [label="I4
+[E, [T, ., number, E]]
+[E, [T, .]]
+" fontsize=10 shape=rectangle]
+	5 [label="I5
+[T, [N, NUMBER, ., T]]
+[T, [., N, NUMBER, T]]
+[T, [., N]]
+[T, [., NUMBER, E, NUMBER]]
+" fontsize=10 shape=rectangle]
+	6 [label="I6
+[T, [NUMBER, E, ., NUMBER]]
+" fontsize=10 shape=rectangle]
+	7 [label="I7
+[E, [T, number, ., E]]
+[E, [., T, number, E]]
+[E, [., T]]
+[T, [., N, NUMBER, T]]
+[T, [., N]]
+[T, [., NUMBER, E, NUMBER]]
+" fontsize=10 shape=rectangle]
+	8 [label="I8
+[T, [N, NUMBER, T, .]]
+" fontsize=10 shape=rectangle]
+	9 [label="I9
+[T, [NUMBER, E, NUMBER, .]]
+" fontsize=10 shape=rectangle]
+	10 [label="I10
+[E, [T, number, E, .]]
+" fontsize=10 shape=rectangle]
+	accept [label=accept fontsize=10 shape=rectangle]
+	0 -> 1 [label=E fontsize=10]
+	0 -> 2 [label=N fontsize=10]
+	0 -> 3 [label=NUMBER fontsize=10]
+	0 -> 4 [label=T fontsize=10]
+	1 -> accept [label="$" fontsize=10]
+	2 -> 5 [label=NUMBER fontsize=10]
+	3 -> 6 [label=E fontsize=10]
+	3 -> 2 [label=N fontsize=10]
+	3 -> 3 [label=NUMBER fontsize=10]
+	3 -> 4 [label=T fontsize=10]
+	4 -> 7 [label=number fontsize=10]
+	5 -> 2 [label=N fontsize=10]
+	5 -> 3 [label=NUMBER fontsize=10]
+	5 -> 8 [label=T fontsize=10]
+	6 -> 9 [label=NUMBER fontsize=10]
+	7 -> 10 [label=E fontsize=10]
+	7 -> 2 [label=N fontsize=10]
+	7 -> 3 [label=NUMBER fontsize=10]
+	7 -> 4 [label=T fontsize=10]
+}

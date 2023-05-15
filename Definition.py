@@ -13,7 +13,7 @@ class Definition(object):
         
     def create_python(self):
         with open("Scanner.py", "w") as file:
-            file.write("from Token import *\n\n")
+            file.write("from Production import *\n\n")
             file.write("def scan(token):\n")
             
             for token, code in self.token_functions:

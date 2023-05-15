@@ -15,11 +15,18 @@ from SyntacticTree import SyntacticTree
 from DFA import DFA
 from Definition import Definition
 from Simulation import Simulation
+from Yalp import Yalp
+from Parser import Parser
 
 header = pyfiglet.figlet_format("Y A L E X")
 print(header)
 
-yalex = "./yalex/slr-2.yal"
+yalex = "./yalex/yalp_analyzer.yal"
+test_yalex = "./yalex/slr-4.yal"
+test_yalp = "./yalp/slr-4.yalp"
+
+with open(test_yalp) as f:
+    testLines = f.readlines()
 
 start_time = time.time()
 
@@ -54,11 +61,8 @@ print("=========================================================================
 dfa = DFA(result)
 direct= dfa.Dstate()
 
-dfa.visualize_dfa(direct[0],direct[1])
+dfa.visualize_dfa(direct[0], direct[1], 'yalp_analyzer.yal')
 
-test = "./test/test_2.txt"
-with open(test) as f:
-    testLines = f.readlines()
 
 print(f"\ntoken_functions: {token_functions}\n")
     
@@ -75,3 +79,12 @@ print(f"\nsimulacion: {sim}\n")
 from Scanner import *
 
 output_scanner(sim)
+
+yalp = Yalp(test_yalex, sim)
+yalp.init_construction()
+yalp.subset_construction()
+yalp.show_graph('slr-4.yalp')
+
+parse = Parser(yalp.transitions, yalp.subsets, yalp.subsets_num, yalp.subproductions)
+parse.construct_table()
+parse.draw_table()

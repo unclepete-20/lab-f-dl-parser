@@ -434,7 +434,7 @@ class DFA:
         
         return [self.nueva_lista, sfPoint]
     
-    def visualize_dfa(self, directAFD, sfPoint):
+    def visualize_dfa(self, directAFD, sfPoint, filename):
 
         inicio = sfPoint[0]
         final = sfPoint[1]
@@ -444,7 +444,15 @@ class DFA:
             q_list.add(l[0])
             q_list.add(l[2])
 
-        f = graphviz.Digraph(comment="DFA")
+        description = (f"DFA of {filename}")
+        
+        f = graphviz.Digraph(comment=description)
+        
+        f.attr(
+            labelloc="t",
+            label=description
+        )
+        
         inicio_listo = True
 
         for name in q_list:
@@ -468,4 +476,4 @@ class DFA:
             else:
                 f.node(str(l[0]))
 
-        f.render("./DFA/DFA", view=True)
+        f.render(f"./DFA/DFA of {filename}", view=True, format='png')
