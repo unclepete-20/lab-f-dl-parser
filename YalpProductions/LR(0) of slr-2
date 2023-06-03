@@ -1,6 +1,6 @@
-// LR(0) of slr-2.yalp
+// LR(0) of slr-2
 digraph {
-	label="LR(0) of slr-2.yalp" labelloc=t
+	label="LR(0) of slr-2" labelloc=t
 	0 [label="I0
 [E, [., E, ID, T]]
 [E, [., E, id, T]]
@@ -19,14 +19,6 @@ digraph {
 [E, [E, .]]
 " fontsize=10 shape=rectangle]
 	2 [label="I2
-[T, [F, .]]
-" fontsize=10 shape=rectangle]
-	3 [label="I3
-[E, [T, .]]
-[T, [T, ., ID, F]]
-[T, [T, ., ID, F]]
-" fontsize=10 shape=rectangle]
-	4 [label="I4
 [E, [., E, ID, T]]
 [E, [., E, id, T]]
 [E, [., T]]
@@ -39,6 +31,14 @@ digraph {
 [T, [., T, ID, F]]
 [T, [., T, ID, F]]
 [T, [., F]]
+" fontsize=10 shape=rectangle]
+	3 [label="I3
+[E, [T, .]]
+[T, [T, ., ID, F]]
+[T, [T, ., ID, F]]
+" fontsize=10 shape=rectangle]
+	4 [label="I4
+[T, [F, .]]
 " fontsize=10 shape=rectangle]
 	5 [label="I5
 [E, [E, id, ., T]]
@@ -59,16 +59,16 @@ digraph {
 [T, [., F]]
 " fontsize=10 shape=rectangle]
 	7 [label="I7
+[E, [E, ., ID, T]]
+[E, [E, ., id, T]]
+[F, [ID, E, ., ID]]
+" fontsize=10 shape=rectangle]
+	8 [label="I8
 [F, [., ID, E, ID]]
 [F, [., ID]]
 [F, [., ID]]
 [T, [T, ID, ., F]]
 [T, [T, ID, ., F]]
-" fontsize=10 shape=rectangle]
-	8 [label="I8
-[E, [E, ., ID, T]]
-[E, [E, ., id, T]]
-[F, [ID, E, ., ID]]
 " fontsize=10 shape=rectangle]
 	9 [label="I9
 [E, [E, id, T, .]]
@@ -81,10 +81,6 @@ digraph {
 [T, [T, ., ID, F]]
 " fontsize=10 shape=rectangle]
 	11 [label="I11
-[T, [T, ID, F, .]]
-[T, [T, ID, F, .]]
-" fontsize=10 shape=rectangle]
-	12 [label="I12
 [E, [E, ID, ., T]]
 [F, [ID, E, ID, .]]
 [F, [., ID, E, ID]]
@@ -94,32 +90,36 @@ digraph {
 [T, [., T, ID, F]]
 [T, [., F]]
 " fontsize=10 shape=rectangle]
+	12 [label="I12
+[T, [T, ID, F, .]]
+[T, [T, ID, F, .]]
+" fontsize=10 shape=rectangle]
 	accept [label=accept fontsize=10 shape=rectangle]
 	0 -> 1 [label=E fontsize=10]
-	0 -> 2 [label=F fontsize=10]
+	0 -> 2 [label=ID fontsize=10]
 	0 -> 3 [label=T fontsize=10]
-	0 -> 4 [label=ID fontsize=10]
+	0 -> 4 [label=F fontsize=10]
 	1 -> 5 [label=id fontsize=10]
 	1 -> 6 [label=ID fontsize=10]
 	1 -> accept [label="$" fontsize=10]
-	3 -> 7 [label=ID fontsize=10]
-	4 -> 8 [label=E fontsize=10]
-	4 -> 2 [label=F fontsize=10]
-	4 -> 3 [label=T fontsize=10]
-	4 -> 4 [label=ID fontsize=10]
-	5 -> 2 [label=F fontsize=10]
+	2 -> 7 [label=E fontsize=10]
+	2 -> 2 [label=ID fontsize=10]
+	2 -> 3 [label=T fontsize=10]
+	2 -> 4 [label=F fontsize=10]
+	3 -> 8 [label=ID fontsize=10]
+	5 -> 2 [label=ID fontsize=10]
 	5 -> 9 [label=T fontsize=10]
-	5 -> 4 [label=ID fontsize=10]
-	6 -> 2 [label=F fontsize=10]
+	5 -> 4 [label=F fontsize=10]
+	6 -> 2 [label=ID fontsize=10]
 	6 -> 10 [label=T fontsize=10]
-	6 -> 4 [label=ID fontsize=10]
-	7 -> 11 [label=F fontsize=10]
-	7 -> 4 [label=ID fontsize=10]
-	8 -> 5 [label=id fontsize=10]
-	8 -> 12 [label=ID fontsize=10]
-	9 -> 7 [label=ID fontsize=10]
-	10 -> 7 [label=ID fontsize=10]
-	12 -> 2 [label=F fontsize=10]
-	12 -> 10 [label=T fontsize=10]
-	12 -> 4 [label=ID fontsize=10]
+	6 -> 4 [label=F fontsize=10]
+	7 -> 5 [label=id fontsize=10]
+	7 -> 11 [label=ID fontsize=10]
+	8 -> 12 [label=F fontsize=10]
+	8 -> 2 [label=ID fontsize=10]
+	9 -> 8 [label=ID fontsize=10]
+	10 -> 8 [label=ID fontsize=10]
+	11 -> 2 [label=ID fontsize=10]
+	11 -> 10 [label=T fontsize=10]
+	11 -> 4 [label=F fontsize=10]
 }

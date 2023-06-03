@@ -68,7 +68,6 @@ class Parser(object):
         print("GOTO: ", self.goto)
         print("ACTION: ", self.action)
 
-
         
     def follow(self, state, accept_state):
         accept_state += "'"
@@ -123,3 +122,82 @@ class Parser(object):
         
         table = tabulate(df, headers='keys', tablefmt='heavy_grid', showindex=True)
         print(table)
+        
+        # Write the table to a txt file
+        with open('./parsing/LR_table_slr4.txt', 'w') as f:
+            f.write(table)
+        
+    def simulation(self, test):
+        stack_history = []
+        symbol_history = []
+        inputs_history = []
+        stack = []
+        symbol = []
+        action = []
+        inputs = [x[0] for x in test] + ["$"]
+        symbol.append("$")
+        stack.append(0)
+        processing = True
+        completed = False
+
+        while processing:
+            stack_top = stack[-1]
+            input_top = inputs[0]
+
+            stack_history.append(copy.deepcopy(stack))
+            symbol_history.append(copy.deepcopy(symbol))
+            inputs_history.append(copy.deepcopy(inputs))
+
+            for rule in self.action:
+                if stack_top == rule[0] and input_top == rule[1]:
+                    processing = True
+                    if rule[2][0] == "s":
+                        stack.append(int(rule[2][1:]))
+                        symbol.append(inputs.pop(0))
+                        action.append(f"shift to {rule[2][1:]}")
+                    elif rule[2][0] == "r":
+                        index = int(rule[2][1:])
+                        reduction = self.reglas[index]
+                        action.append(f"reduced by {reduction[0]} -> {' '.join(reduction[1])}")
+                        stacks_to_remove = len(reduction[1])
+
+                        for _ in range(stacks_to_remove):
+                            stack.pop(-1)
+
+                        replace_indices = [z for y in reduction[1] for z, elem in enumerate(reversed(symbol)) if y == elem]
+
+                        if len(replace_indices) > 1:
+                            symbol[replace_indices[0]:replace_indices[-1] + 1] = reduction[0]
+                        else:
+                            symbol[replace_indices[0]] = reduction[0]
+
+                        stack_top = stack[-1]
+                        for transition in self.goto:
+                            if transition[0] == stack_top and transition[1] == reduction[0]:
+                                stack.append(int(transition[2]))
+                    elif rule[2] == "accepted":
+                        action.append("accept")
+                        completed = True
+                        processing = False
+                    break
+                else:
+                    processing = False
+
+        if len(action) != len(stack_history):
+            action.append("Error")
+
+        if completed:
+            print("Accepted")
+        else:
+            print("Not accepted")
+
+        data = {'Stack': stack_history, 'Symbol': symbol_history, 'Inputs': inputs_history, 'Action': action}
+        df = pd.DataFrame(data)
+        df.index.name = 'Line'
+
+        table = tabulate(df, headers='keys', tablefmt='fancy_grid', showindex=True)
+        print(table)
+
+        # Write the table to a txt file
+        with open('./parsing/simulation_table_slr4.txt', 'w') as f:
+            f.write(table)

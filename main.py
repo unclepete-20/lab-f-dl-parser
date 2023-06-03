@@ -83,8 +83,21 @@ output_scanner(sim)
 yalp = Yalp(test_yalex, sim)
 yalp.init_construction()
 yalp.subset_construction()
-yalp.show_graph('slr-4.yalp')
+yalp.show_graph('slr-4')
+
+print(yalp)
+
+test_yalp = "./test/yalp_test.txt"
+with open(test_yalp) as f:
+    testLines = f.readlines()
+
+    
+simulation_yalp = Simulation(direct[0],direct[1],testLines)
+test_token = simulation_yalp.simulate()
+
+print(yalp.subsets)
 
 parse = Parser(yalp.transitions, yalp.subsets, yalp.subsets_num, yalp.subproductions)
 parse.construct_table()
 parse.draw_table()
+parse.simulation(test_token)

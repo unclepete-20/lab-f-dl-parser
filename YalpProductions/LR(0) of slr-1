@@ -1,6 +1,6 @@
-// LR(0) of slr-1.yalp
+// LR(0) of slr-1
 digraph {
-	label="LR(0) of slr-1.yalp" labelloc=t
+	label="LR(0) of slr-1" labelloc=t
 	0 [label="I0
 [E, [., E, id, T]]
 [E, [., T]]
@@ -11,11 +11,11 @@ digraph {
 [T, [., F]]
 " fontsize=10 shape=rectangle]
 	1 [label="I1
-[E, [E, ., id, T]]
-[E, [E, .]]
+[T, [F, .]]
 " fontsize=10 shape=rectangle]
 	2 [label="I2
-[T, [F, .]]
+[E, [T, .]]
+[T, [T, ., ID, F]]
 " fontsize=10 shape=rectangle]
 	3 [label="I3
 [E, [., E, id, T]]
@@ -28,53 +28,53 @@ digraph {
 [T, [., F]]
 " fontsize=10 shape=rectangle]
 	4 [label="I4
-[E, [T, .]]
-[T, [T, ., ID, F]]
+[E, [E, ., id, T]]
+[E, [E, .]]
 " fontsize=10 shape=rectangle]
 	5 [label="I5
-[E, [E, id, ., T]]
 [F, [., ID, E, ID]]
 [F, [., ID]]
-[T, [., T, ID, F]]
-[T, [., F]]
+[T, [T, ID, ., F]]
 " fontsize=10 shape=rectangle]
 	6 [label="I6
 [E, [E, ., id, T]]
 [F, [ID, E, ., ID]]
 " fontsize=10 shape=rectangle]
 	7 [label="I7
+[E, [E, id, ., T]]
 [F, [., ID, E, ID]]
 [F, [., ID]]
-[T, [T, ID, ., F]]
+[T, [., T, ID, F]]
+[T, [., F]]
 " fontsize=10 shape=rectangle]
 	8 [label="I8
-[E, [E, id, T, .]]
-[T, [T, ., ID, F]]
+[T, [T, ID, F, .]]
 " fontsize=10 shape=rectangle]
 	9 [label="I9
 [F, [ID, E, ID, .]]
 " fontsize=10 shape=rectangle]
 	10 [label="I10
-[T, [T, ID, F, .]]
+[E, [E, id, T, .]]
+[T, [T, ., ID, F]]
 " fontsize=10 shape=rectangle]
 	accept [label=accept fontsize=10 shape=rectangle]
-	0 -> 1 [label=E fontsize=10]
-	0 -> 2 [label=F fontsize=10]
+	0 -> 1 [label=F fontsize=10]
+	0 -> 2 [label=T fontsize=10]
 	0 -> 3 [label=ID fontsize=10]
-	0 -> 4 [label=T fontsize=10]
-	1 -> 5 [label=id fontsize=10]
-	1 -> accept [label="$" fontsize=10]
-	3 -> 6 [label=E fontsize=10]
-	3 -> 2 [label=F fontsize=10]
+	0 -> 4 [label=E fontsize=10]
+	2 -> 5 [label=ID fontsize=10]
+	3 -> 1 [label=F fontsize=10]
+	3 -> 2 [label=T fontsize=10]
 	3 -> 3 [label=ID fontsize=10]
-	3 -> 4 [label=T fontsize=10]
-	4 -> 7 [label=ID fontsize=10]
-	5 -> 2 [label=F fontsize=10]
+	3 -> 6 [label=E fontsize=10]
+	4 -> 7 [label=id fontsize=10]
+	4 -> accept [label="$" fontsize=10]
+	5 -> 8 [label=F fontsize=10]
 	5 -> 3 [label=ID fontsize=10]
-	5 -> 8 [label=T fontsize=10]
-	6 -> 5 [label=id fontsize=10]
+	6 -> 7 [label=id fontsize=10]
 	6 -> 9 [label=ID fontsize=10]
-	7 -> 10 [label=F fontsize=10]
+	7 -> 1 [label=F fontsize=10]
+	7 -> 10 [label=T fontsize=10]
 	7 -> 3 [label=ID fontsize=10]
-	8 -> 7 [label=ID fontsize=10]
+	10 -> 5 [label=ID fontsize=10]
 }
